@@ -20,11 +20,11 @@
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 require('dotenv').config();
-const { DB_PORT } = process.env;
+const port = process.env.DB_PORT || 3001;
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(DB_PORT, () => {
+  server.listen(port, () => {
     console.log('%s listening at http://localhost:3001'); // eslint-disable-line no-console
   });
 });
