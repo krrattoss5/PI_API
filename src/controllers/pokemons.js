@@ -7,7 +7,7 @@ const getAllPokemonsApi = async (req,res)=>{
   try {
     if(pokemons.length) return pokemons
     //traigo la lista de urls de todos los poquemon que voy a usar
-    const pokemonsArr1 = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=905").then(({data})=> data.results);
+    const pokemonsArr1 = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=60").then(({data})=> data.results);
     //aqui extraigo la data de los url
     const pokemonsArr = [...pokemonsArr1]
     const pokemonsURL = pokemonsArr.map(p => axios.get(p.url));
